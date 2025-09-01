@@ -508,9 +508,20 @@ class AdvancedEmbeddingComparator:
         elif method == 'hybrid':
             similarities = {'hybrid': self.hybrid_similarity(record1.embedding, record2.embedding)}
             primary_score = similarities['hybrid']
-        elif method in ['cosine', 'diem', 'qb_cosine', 'angular', 'euclidean']:
-            method_func = getattr(self, f"{method}_similarity" if method != 'angular' else 'angular_distance')
-            primary_score = method_func(record1.embedding, record2.embedding)
+        elif method == 'cosine':
+            primary_score = self.cosine_similarity(record1.embedding, record2.embedding)
+            similarities = {method: primary_score}
+        elif method == 'diem':
+            primary_score = self.diem_similarity(record1.embedding, record2.embedding)
+            similarities = {method: primary_score}
+        elif method == 'qb_cosine':
+            primary_score = self.qb_normalized_cosine(record1.embedding, record2.embedding)
+            similarities = {method: primary_score}
+        elif method == 'angular':
+            primary_score = self.angular_distance(record1.embedding, record2.embedding)
+            similarities = {method: primary_score}
+        elif method == 'euclidean':
+            primary_score = self.euclidean_similarity(record1.embedding, record2.embedding)
             similarities = {method: primary_score}
         else:
             primary_score = self.cosine_similarity(record1.embedding, record2.embedding)

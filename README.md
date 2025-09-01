@@ -2,6 +2,8 @@
 
 Een uitgebreide toolkit voor het testen en vergelijken van verschillende embedding modellen (Ollama en HuggingFace) met meerdere similarity methoden voor Nederlandse semantische matching.
 
+Onstaan in "intensieve samenwerking" met collega Robin, alswel Perplexity: https://www.perplexity.ai/search/schrijf-me-een-stukje-python-c-CClnjxbjRiOhpBO8Lr0E6Q
+
 ## 📋 Overzicht
 
 Dit pakket biedt een complete oplossing voor het evalueren van embedding modellen op Nederlandse teksten. Het ondersteunt zowel lokale HuggingFace modellen als remote Ollama modellen, en test verschillende similarity methoden om de beste combinatie te vinden voor semantische matching.
