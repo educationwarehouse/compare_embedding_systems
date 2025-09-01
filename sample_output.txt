@@ -1,0 +1,571 @@
+$ python3 compare_models.py 
+📁 Laden van markdown bestanden...
+✅ Geladen: 5 visies, 5 queries
+🎯 Verwachte matches gedefinieerd voor 5 queries
+🔧 Te testen: 8 modellen (5 Ollama + 3 HuggingFace)
+
+=== Starting Mixed Model Embedding Process ===
+=== Embedden van Visies (Mixed Ollama + HuggingFace) ===
+
+Model: nomic-embed-text (type: ollama)
+  1/5: Duurzaamheid en Milieu...
+✓ Verbonden met Ollama server op http://localhost:11434
+  2/5: Innovatie en Technologie...
+  3/5: Sociale Rechtvaardigheid...
+  4/5: Onderwijs en Ontwikkeling...
+  5/5: Gemeenschapsvorming...
+
+Model: mxbai-embed-large (type: ollama)
+  1/5: Duurzaamheid en Milieu...
+  2/5: Innovatie en Technologie...
+  3/5: Sociale Rechtvaardigheid...
+  4/5: Onderwijs en Ontwikkeling...
+  5/5: Gemeenschapsvorming...
+
+Model: all-minilm (type: ollama)
+  1/5: Duurzaamheid en Milieu...
+  2/5: Innovatie en Technologie...
+  3/5: Sociale Rechtvaardigheid...
+  4/5: Onderwijs en Ontwikkeling...
+  5/5: Gemeenschapsvorming...
+
+Model: bge-large (type: ollama)
+  1/5: Duurzaamheid en Milieu...
+  2/5: Innovatie en Technologie...
+  3/5: Sociale Rechtvaardigheid...
+  4/5: Onderwijs en Ontwikkeling...
+  5/5: Gemeenschapsvorming...
+
+Model: bge-m3 (type: ollama)
+  1/5: Duurzaamheid en Milieu...
+  2/5: Innovatie en Technologie...
+  3/5: Sociale Rechtvaardigheid...
+  4/5: Onderwijs en Ontwikkeling...
+  5/5: Gemeenschapsvorming...
+
+Model: jegormeister/bert-base-dutch-cased-snli (type: huggingface)
+  1/5: Duurzaamheid en Milieu...
+✓ HuggingFace model geladen via LlamaIndex: jegormeister/bert-base-dutch-cased-snli
+  2/5: Innovatie en Technologie...
+  3/5: Sociale Rechtvaardigheid...
+  4/5: Onderwijs en Ontwikkeling...
+  5/5: Gemeenschapsvorming...
+
+Model: GroNLP/bert-base-dutch-cased (type: huggingface)
+  1/5: Duurzaamheid en Milieu...
+No sentence-transformers model found with name GroNLP/bert-base-dutch-cased. Creating a new one with mean pooling.
+Some weights of BertModel were not initialized from the model checkpoint at GroNLP/bert-base-dutch-cased and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+✓ HuggingFace model geladen via LlamaIndex: GroNLP/bert-base-dutch-cased
+  2/5: Innovatie en Technologie...
+  3/5: Sociale Rechtvaardigheid...
+  4/5: Onderwijs en Ontwikkeling...
+  5/5: Gemeenschapsvorming...
+
+Model: pdelobelle/robbert-v2-dutch-base (type: huggingface)
+  1/5: Duurzaamheid en Milieu...
+No sentence-transformers model found with name pdelobelle/robbert-v2-dutch-base. Creating a new one with mean pooling.
+Some weights of RobertaModel were not initialized from the model checkpoint at pdelobelle/robbert-v2-dutch-base and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+✓ HuggingFace model geladen via LlamaIndex: pdelobelle/robbert-v2-dutch-base
+  2/5: Innovatie en Technologie...
+  3/5: Sociale Rechtvaardigheid...
+  4/5: Onderwijs en Ontwikkeling...
+  5/5: Gemeenschapsvorming...
+✓ Background corpus ingesteld met 5 vectoren
+✓ Background corpus voor nomic-embed-text: 5 embeddings
+✓ Background corpus ingesteld met 5 vectoren
+✓ Background corpus voor mxbai-embed-large: 5 embeddings
+✓ Background corpus ingesteld met 5 vectoren
+✓ Background corpus voor all-minilm: 5 embeddings
+✓ Background corpus ingesteld met 5 vectoren
+✓ Background corpus voor bge-large: 5 embeddings
+✓ Background corpus ingesteld met 5 vectoren
+✓ Background corpus voor bge-m3: 5 embeddings
+✓ Background corpus ingesteld met 5 vectoren
+✓ Background corpus voor jegormeister/bert-base-dutch-cased-snli: 5 embeddings
+✓ Background corpus ingesteld met 5 vectoren
+✓ Background corpus voor GroNLP/bert-base-dutch-cased: 5 embeddings
+✓ Background corpus ingesteld met 5 vectoren
+✓ Background corpus voor pdelobelle/robbert-v2-dutch-base: 5 embeddings
+
+=== Mixed Intra-Model Query Processing ===
+
+📝 Query 1/5: Hoe kunnen we klimaatverandering tegengaan?
+
+🔍 Query: Hoe kunnen we klimaatverandering tegengaan?
+   Verwachte match: 'Duurzaamheid en Milieu'
+  📊 Model: nomic-embed-text (ollama)
+    - cosine      : pos 1, gap 5.4%, quality high
+    - diem        : pos 1, gap 0.2%, quality low
+    - qb_cosine   : pos 1, gap 322.3%, quality high
+    - angular     : pos 1, gap 2.4%, quality medium
+    - hybrid      : pos 1, gap 16.4%, quality high
+    - comprehensive: pos 1, gap 16.4%, quality high
+  📊 Model: mxbai-embed-large (ollama)
+    - cosine      : pos 1, gap 8.4%, quality high
+    - diem        : pos 1, gap 0.3%, quality low
+    - qb_cosine   : pos 1, gap 211.6%, quality high
+    - angular     : pos 1, gap 3.8%, quality medium
+    - hybrid      : pos 1, gap 20.2%, quality high
+    - comprehensive: pos 1, gap 20.2%, quality high
+  📊 Model: all-minilm (ollama)
+    - cosine      : pos 2, gap 7.4%, quality high
+    - diem        : pos 2, gap 0.2%, quality low
+    - qb_cosine   : pos 2, gap 150.3%, quality high
+    - angular     : pos 2, gap 2.2%, quality medium
+    - hybrid      : pos 2, gap 9.4%, quality high
+    - comprehensive: pos 2, gap 9.4%, quality high
+  📊 Model: bge-large (ollama)
+    - cosine      : pos 1, gap 7.7%, quality high
+    - diem        : pos 1, gap 0.3%, quality low
+    - qb_cosine   : pos 1, gap 126.5%, quality high
+    - angular     : pos 1, gap 3.7%, quality medium
+    - hybrid      : pos 1, gap 19.9%, quality high
+    - comprehensive: pos 1, gap 19.9%, quality high
+  📊 Model: bge-m3 (ollama)
+    - cosine      : pos 1, gap 3.1%, quality medium
+    - diem        : pos 1, gap 0.1%, quality low
+    - qb_cosine   : pos 1, gap 0.0%, quality low
+    - angular     : pos 1, gap 1.0%, quality low
+    - hybrid      : pos 1, gap 3.3%, quality medium
+    - comprehensive: pos 1, gap 3.3%, quality medium
+  📊 Model: jegormeister/bert-base-dutch-cased-snli (huggingface)
+    - cosine      : pos 1, gap 15.5%, quality high
+    - diem        : pos 1, gap 0.4%, quality low
+    - qb_cosine   : pos 1, gap 249.5%, quality high
+    - angular     : pos 1, gap 6.0%, quality high
+    - hybrid      : pos 1, gap 30.7%, quality high
+    - comprehensive: pos 1, gap 30.7%, quality high
+  📊 Model: GroNLP/bert-base-dutch-cased (huggingface)
+    - cosine      : pos 1, gap 0.2%, quality low
+    - diem        : pos 1, gap 0.0%, quality low
+    - qb_cosine   : pos 2, gap 0.0%, quality low
+    - angular     : pos 1, gap 0.1%, quality low
+    - hybrid      : pos 2, gap 0.8%, quality low
+    - comprehensive: pos 2, gap 0.8%, quality low
+  📊 Model: pdelobelle/robbert-v2-dutch-base (huggingface)
+    - cosine      : pos 3, gap 0.4%, quality low
+    - diem        : pos 3, gap 0.0%, quality low
+    - qb_cosine   : pos 3, gap 0.0%, quality low
+    - angular     : pos 3, gap 0.5%, quality low
+    - hybrid      : pos 3, gap 3.9%, quality medium
+    - comprehensive: pos 3, gap 3.9%, quality medium
+
+📝 Query 2/5: Wat is de rol van kunstmatige intelligentie in de toekomst?
+
+🔍 Query: Wat is de rol van kunstmatige intelligentie in de toekomst?
+   Verwachte match: 'Innovatie en Technologie'
+  📊 Model: nomic-embed-text (ollama)
+    - cosine      : pos 2, gap 0.2%, quality low
+    - diem        : pos 2, gap 0.0%, quality low
+    - qb_cosine   : pos 1, gap 0.0%, quality low
+    - angular     : pos 2, gap 0.1%, quality low
+    - hybrid      : pos 1, gap 1.2%, quality low
+    - comprehensive: pos 1, gap 1.2%, quality low
+  📊 Model: mxbai-embed-large (ollama)
+    - cosine      : pos 1, gap 1.4%, quality low
+    - diem        : pos 1, gap 0.0%, quality low
+    - qb_cosine   : pos 1, gap 119.8%, quality high
+    - angular     : pos 1, gap 0.6%, quality low
+    - hybrid      : pos 1, gap 13.2%, quality high
+    - comprehensive: pos 1, gap 13.2%, quality high
+  📊 Model: all-minilm (ollama)
+    - cosine      : pos 4, gap 13.0%, quality high
+    - diem        : pos 4, gap 0.3%, quality low
+    - qb_cosine   : pos 2, gap 0.0%, quality low
+    - angular     : pos 4, gap 3.2%, quality medium
+    - hybrid      : pos 2, gap 15.2%, quality high
+    - comprehensive: pos 2, gap 15.2%, quality high
+  📊 Model: bge-large (ollama)
+    - cosine      : pos 2, gap 1.3%, quality low
+    - diem        : pos 2, gap 0.0%, quality low
+    - qb_cosine   : pos 1, gap 57.9%, quality high
+    - angular     : pos 2, gap 0.6%, quality low
+    - hybrid      : pos 1, gap 5.4%, quality high
+    - comprehensive: pos 1, gap 5.4%, quality high
+  📊 Model: bge-m3 (ollama)
+    - cosine      : pos 1, gap 3.5%, quality medium
+    - diem        : pos 1, gap 0.1%, quality low
+    - qb_cosine   : pos 1, gap 0.0%, quality low
+    - angular     : pos 1, gap 1.1%, quality low
+    - hybrid      : pos 1, gap 7.2%, quality high
+    - comprehensive: pos 1, gap 7.2%, quality high
+  📊 Model: jegormeister/bert-base-dutch-cased-snli (huggingface)
+    - cosine      : pos 1, gap 1.6%, quality low
+    - diem        : pos 1, gap 0.0%, quality low
+    - qb_cosine   : pos 1, gap 52.3%, quality high
+    - angular     : pos 1, gap 0.6%, quality low
+    - hybrid      : pos 1, gap 3.3%, quality medium
+    - comprehensive: pos 1, gap 3.3%, quality medium
+  📊 Model: GroNLP/bert-base-dutch-cased (huggingface)
+    - cosine      : pos 2, gap 2.2%, quality medium
+    - diem        : pos 2, gap 0.1%, quality low
+    - qb_cosine   : pos 2, gap 2520.5%, quality high
+    - angular     : pos 2, gap 1.4%, quality low
+    - hybrid      : pos 2, gap 9.4%, quality high
+    - comprehensive: pos 2, gap 9.4%, quality high
+  📊 Model: pdelobelle/robbert-v2-dutch-base (huggingface)
+    - cosine      : pos 1, gap 0.2%, quality low
+    - diem        : pos 1, gap 0.0%, quality low
+    - qb_cosine   : pos 1, gap 406.9%, quality high
+    - angular     : pos 1, gap 0.2%, quality low
+    - hybrid      : pos 1, gap 8.5%, quality high
+    - comprehensive: pos 1, gap 8.5%, quality high
+
+📝 Query 3/5: Hoe zorgen we voor meer gelijkheid in de samenleving?
+
+🔍 Query: Hoe zorgen we voor meer gelijkheid in de samenleving?
+   Verwachte match: 'Sociale Rechtvaardigheid'
+  📊 Model: nomic-embed-text (ollama)
+    - cosine      : pos 2, gap 1.7%, quality low
+    - diem        : pos 2, gap 0.1%, quality low
+    - qb_cosine   : pos 2, gap 54.6%, quality high
+    - angular     : pos 2, gap 0.8%, quality low
+    - hybrid      : pos 2, gap 5.0%, quality medium
+    - comprehensive: pos 2, gap 5.0%, quality medium
+  📊 Model: mxbai-embed-large (ollama)
+    - cosine      : pos 1, gap 2.0%, quality medium
+    - diem        : pos 1, gap 0.1%, quality low
+    - qb_cosine   : pos 1, gap 14.9%, quality high
+    - angular     : pos 1, gap 1.0%, quality low
+    - hybrid      : pos 1, gap 2.0%, quality medium
+    - comprehensive: pos 1, gap 2.0%, quality medium
+  📊 Model: all-minilm (ollama)
+    - cosine      : pos 1, gap 9.0%, quality high
+    - diem        : pos 1, gap 0.3%, quality low
+    - qb_cosine   : pos 1, gap 23.0%, quality high
+    - angular     : pos 1, gap 3.4%, quality medium
+    - hybrid      : pos 1, gap 8.4%, quality high
+    - comprehensive: pos 1, gap 8.4%, quality high
+  📊 Model: bge-large (ollama)
+    - cosine      : pos 1, gap 2.5%, quality medium
+    - diem        : pos 1, gap 0.1%, quality low
+    - qb_cosine   : pos 1, gap 48.1%, quality high
+    - angular     : pos 1, gap 1.2%, quality low
+    - hybrid      : pos 1, gap 4.5%, quality medium
+    - comprehensive: pos 1, gap 4.5%, quality medium
+  📊 Model: bge-m3 (ollama)
+    - cosine      : pos 1, gap 21.3%, quality high
+    - diem        : pos 1, gap 0.6%, quality low
+    - qb_cosine   : pos 1, gap 151.9%, quality high
+    - angular     : pos 1, gap 8.5%, quality high
+    - hybrid      : pos 1, gap 37.9%, quality high
+    - comprehensive: pos 1, gap 37.9%, quality high
+  📊 Model: jegormeister/bert-base-dutch-cased-snli (huggingface)
+    - cosine      : pos 1, gap 5.1%, quality high
+    - diem        : pos 1, gap 0.2%, quality low
+    - qb_cosine   : pos 1, gap 82.1%, quality high
+    - angular     : pos 1, gap 2.4%, quality medium
+    - hybrid      : pos 1, gap 16.2%, quality high
+    - comprehensive: pos 1, gap 16.2%, quality high
+  📊 Model: GroNLP/bert-base-dutch-cased (huggingface)
+    - cosine      : pos 1, gap 0.2%, quality low
+    - diem        : pos 1, gap 0.0%, quality low
+    - qb_cosine   : pos 1, gap 85.6%, quality high
+    - angular     : pos 1, gap 0.2%, quality low
+    - hybrid      : pos 1, gap 8.4%, quality high
+    - comprehensive: pos 1, gap 8.4%, quality high
+  📊 Model: pdelobelle/robbert-v2-dutch-base (huggingface)
+    - cosine      : pos 2, gap 0.2%, quality low
+    - diem        : pos 2, gap 0.0%, quality low
+    - qb_cosine   : pos 2, gap 51.9%, quality high
+    - angular     : pos 2, gap 0.3%, quality low
+    - hybrid      : pos 2, gap 5.8%, quality high
+    - comprehensive: pos 2, gap 5.8%, quality high
+
+📝 Query 4/5: Welke vaardigheden hebben mensen nodig voor de arbeidsmarkt van morgen?
+
+🔍 Query: Welke vaardigheden hebben mensen nodig voor de arbeidsmarkt van morgen?
+   Verwachte match: 'Onderwijs en Ontwikkeling'
+  📊 Model: nomic-embed-text (ollama)
+    - cosine      : pos 3, gap 4.0%, quality medium
+    - diem        : pos 3, gap 0.1%, quality low
+    - qb_cosine   : pos 3, gap 1309.9%, quality high
+    - angular     : pos 3, gap 1.7%, quality low
+    - hybrid      : pos 3, gap 11.2%, quality high
+    - comprehensive: pos 3, gap 11.2%, quality high
+  📊 Model: mxbai-embed-large (ollama)
+    - cosine      : pos 3, gap 5.6%, quality high
+    - diem        : pos 3, gap 0.2%, quality low
+    - qb_cosine   : pos 3, gap 0.0%, quality low
+    - angular     : pos 3, gap 2.4%, quality medium
+    - hybrid      : pos 3, gap 17.2%, quality high
+    - comprehensive: pos 3, gap 17.2%, quality high
+  📊 Model: all-minilm (ollama)
+    - cosine      : pos 2, gap 0.8%, quality low
+    - diem        : pos 2, gap 0.0%, quality low
+    - qb_cosine   : pos 1, gap 199.9%, quality high
+    - angular     : pos 2, gap 0.2%, quality low
+    - hybrid      : pos 1, gap 4.9%, quality medium
+    - comprehensive: pos 1, gap 4.9%, quality medium
+  📊 Model: bge-large (ollama)
+    - cosine      : pos 2, gap 4.1%, quality medium
+    - diem        : pos 2, gap 0.1%, quality low
+    - qb_cosine   : pos 2, gap 129.7%, quality high
+    - angular     : pos 2, gap 1.9%, quality low
+    - hybrid      : pos 2, gap 9.4%, quality high
+    - comprehensive: pos 2, gap 9.4%, quality high
+  📊 Model: bge-m3 (ollama)
+    - cosine      : pos 1, gap 13.0%, quality high
+    - diem        : pos 1, gap 0.3%, quality low
+    - qb_cosine   : pos 1, gap 212.5%, quality high
+    - angular     : pos 1, gap 4.7%, quality medium
+    - hybrid      : pos 1, gap 26.6%, quality high
+    - comprehensive: pos 1, gap 26.6%, quality high
+  📊 Model: jegormeister/bert-base-dutch-cased-snli (huggingface)
+    - cosine      : pos 1, gap 19.5%, quality high
+    - diem        : pos 1, gap 0.7%, quality low
+    - qb_cosine   : pos 1, gap 130.4%, quality high
+    - angular     : pos 1, gap 8.4%, quality high
+    - hybrid      : pos 1, gap 36.8%, quality high
+    - comprehensive: pos 1, gap 36.8%, quality high
+  📊 Model: GroNLP/bert-base-dutch-cased (huggingface)
+    - cosine      : pos 1, gap 4.7%, quality medium
+    - diem        : pos 1, gap 0.3%, quality low
+    - qb_cosine   : pos 1, gap 137.2%, quality high
+    - angular     : pos 1, gap 3.4%, quality medium
+    - hybrid      : pos 1, gap 24.8%, quality high
+    - comprehensive: pos 1, gap 24.8%, quality high
+  📊 Model: pdelobelle/robbert-v2-dutch-base (huggingface)
+    - cosine      : pos 1, gap 1.7%, quality low
+    - diem        : pos 1, gap 0.2%, quality low
+    - qb_cosine   : pos 1, gap 155.0%, quality high
+    - angular     : pos 1, gap 2.2%, quality medium
+    - hybrid      : pos 1, gap 29.9%, quality high
+    - comprehensive: pos 1, gap 29.9%, quality high
+
+📝 Query 5/5: Hoe kunnen technologie en gemeenschappen elkaar versterken?
+
+🔍 Query: Hoe kunnen technologie en gemeenschappen elkaar versterken?
+   Verwachte match: 'Innovatie en Technologie'
+  📊 Model: nomic-embed-text (ollama)
+    - cosine      : pos 1, gap 2.4%, quality medium
+    - diem        : pos 1, gap 0.1%, quality low
+    - qb_cosine   : pos 1, gap 56.9%, quality high
+    - angular     : pos 1, gap 1.3%, quality low
+    - hybrid      : pos 1, gap 11.9%, quality high
+    - comprehensive: pos 1, gap 11.9%, quality high
+  📊 Model: mxbai-embed-large (ollama)
+    - cosine      : pos 2, gap 3.2%, quality medium
+    - diem        : pos 2, gap 0.1%, quality low
+    - qb_cosine   : pos 1, gap 4.5%, quality medium
+    - angular     : pos 2, gap 1.6%, quality low
+    - hybrid      : pos 2, gap 0.6%, quality low
+    - comprehensive: pos 2, gap 0.6%, quality low
+  📊 Model: all-minilm (ollama)
+    - cosine      : pos 1, gap 12.8%, quality high
+    - diem        : pos 1, gap 0.4%, quality low
+    - qb_cosine   : pos 1, gap 101.3%, quality high
+    - angular     : pos 1, gap 4.0%, quality medium
+    - hybrid      : pos 1, gap 24.2%, quality high
+    - comprehensive: pos 1, gap 24.2%, quality high
+  📊 Model: bge-large (ollama)
+    - cosine      : pos 2, gap 4.3%, quality medium
+    - diem        : pos 2, gap 0.1%, quality low
+    - qb_cosine   : pos 2, gap 31.0%, quality high
+    - angular     : pos 2, gap 2.1%, quality medium
+    - hybrid      : pos 2, gap 4.5%, quality medium
+    - comprehensive: pos 2, gap 4.5%, quality medium
+  📊 Model: bge-m3 (ollama)
+    - cosine      : pos 2, gap 4.0%, quality medium
+    - diem        : pos 2, gap 0.1%, quality low
+    - qb_cosine   : pos 2, gap 118.8%, quality high
+    - angular     : pos 2, gap 1.4%, quality low
+    - hybrid      : pos 2, gap 7.7%, quality high
+    - comprehensive: pos 2, gap 7.7%, quality high
+  📊 Model: jegormeister/bert-base-dutch-cased-snli (huggingface)
+    - cosine      : pos 2, gap 1.7%, quality low
+    - diem        : pos 2, gap 0.1%, quality low
+    - qb_cosine   : pos 2, gap 4.9%, quality medium
+    - angular     : pos 2, gap 0.8%, quality low
+    - hybrid      : pos 2, gap 1.3%, quality low
+    - comprehensive: pos 2, gap 1.3%, quality low
+  📊 Model: GroNLP/bert-base-dutch-cased (huggingface)
+    - cosine      : pos 1, gap 0.1%, quality low
+    - diem        : pos 1, gap 0.0%, quality low
+    - qb_cosine   : pos 1, gap 61.0%, quality high
+    - angular     : pos 1, gap 0.1%, quality low
+    - hybrid      : pos 1, gap 2.4%, quality medium
+    - comprehensive: pos 1, gap 2.4%, quality medium
+  📊 Model: pdelobelle/robbert-v2-dutch-base (huggingface)
+    - cosine      : pos 2, gap 0.2%, quality low
+    - diem        : pos 2, gap 0.0%, quality low
+    - qb_cosine   : pos 2, gap 2461.2%, quality high
+    - angular     : pos 2, gap 0.3%, quality low
+    - hybrid      : pos 2, gap 5.6%, quality high
+    - comprehensive: pos 2, gap 5.6%, quality high
+
+=== Mixed Model Performance Analyse ===
+Ollama modellen: 5
+HuggingFace modellen: 3
+
+📊 Model: nomic-embed-text (ollama)
+  cosine       | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim:   2.8%
+  diem         | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim:   0.1%
+  qb_cosine    | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim: 348.8%
+  angular      | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim:   1.3%
+  hybrid       | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:   9.1%
+  comprehensive | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:   9.1%
+
+  🏆 Beste methoden voor nomic-embed-text:
+    1. qb_cosine (Top1: 60.0%, Top3: 100.0%, Discrim: 348.8%)
+    2. hybrid (Top1: 60.0%, Top3: 100.0%, Discrim: 9.1%)
+    3. comprehensive (Top1: 60.0%, Top3: 100.0%, Discrim: 9.1%)
+
+📊 Model: mxbai-embed-large (ollama)
+  cosine       | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:   4.1%
+  diem         | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:   0.1%
+  qb_cosine    | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:  70.2%
+  angular      | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:   1.9%
+  hybrid       | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:  10.6%
+  comprehensive | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:  10.6%
+
+  🏆 Beste methoden voor mxbai-embed-large:
+    1. qb_cosine (Top1: 80.0%, Top3: 100.0%, Discrim: 70.2%)
+    2. hybrid (Top1: 60.0%, Top3: 100.0%, Discrim: 10.6%)
+    3. comprehensive (Top1: 60.0%, Top3: 100.0%, Discrim: 10.6%)
+
+📊 Model: all-minilm (ollama)
+  cosine       | Top1:  40.0% | Top3:  80.0% | AvgPos:  2.0 | Discrim:   8.6%
+  diem         | Top1:  40.0% | Top3:  80.0% | AvgPos:  2.0 | Discrim:   0.2%
+  qb_cosine    | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:  94.9%
+  angular      | Top1:  40.0% | Top3:  80.0% | AvgPos:  2.0 | Discrim:   2.6%
+  hybrid       | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:  12.4%
+  comprehensive | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:  12.4%
+
+  🏆 Beste methoden voor all-minilm:
+    1. qb_cosine (Top1: 60.0%, Top3: 100.0%, Discrim: 94.9%)
+    2. hybrid (Top1: 60.0%, Top3: 100.0%, Discrim: 12.4%)
+    3. comprehensive (Top1: 60.0%, Top3: 100.0%, Discrim: 12.4%)
+
+📊 Model: bge-large (ollama)
+  cosine       | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:   4.0%
+  diem         | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:   0.1%
+  qb_cosine    | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:  78.6%
+  angular      | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.6 | Discrim:   1.9%
+  hybrid       | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:   8.7%
+  comprehensive | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:   8.7%
+
+  🏆 Beste methoden voor bge-large:
+    1. qb_cosine (Top1: 60.0%, Top3: 100.0%, Discrim: 78.6%)
+    2. hybrid (Top1: 60.0%, Top3: 100.0%, Discrim: 8.7%)
+    3. comprehensive (Top1: 60.0%, Top3: 100.0%, Discrim: 8.7%)
+
+📊 Model: bge-m3 (ollama)
+  cosine       | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   9.0%
+  diem         | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   0.2%
+  qb_cosine    | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:  96.6%
+  angular      | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   3.3%
+  hybrid       | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:  16.6%
+  comprehensive | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:  16.6%
+
+  🏆 Beste methoden voor bge-m3:
+    1. qb_cosine (Top1: 80.0%, Top3: 100.0%, Discrim: 96.6%)
+    2. hybrid (Top1: 80.0%, Top3: 100.0%, Discrim: 16.6%)
+    3. comprehensive (Top1: 80.0%, Top3: 100.0%, Discrim: 16.6%)
+
+📊 Model: jegormeister/bert-base-dutch-cased-snli (huggingface)
+  cosine       | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   8.7%
+  diem         | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   0.3%
+  qb_cosine    | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim: 103.8%
+  angular      | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   3.6%
+  hybrid       | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:  17.7%
+  comprehensive | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:  17.7%
+
+  🏆 Beste methoden voor jegormeister/bert-base-dutch-cased-snli:
+    1. qb_cosine (Top1: 80.0%, Top3: 100.0%, Discrim: 103.8%)
+    2. hybrid (Top1: 80.0%, Top3: 100.0%, Discrim: 17.7%)
+    3. comprehensive (Top1: 80.0%, Top3: 100.0%, Discrim: 17.7%)
+
+📊 Model: GroNLP/bert-base-dutch-cased (huggingface)
+  cosine       | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   1.5%
+  diem         | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   0.1%
+  qb_cosine    | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim: 560.9%
+  angular      | Top1:  80.0% | Top3: 100.0% | AvgPos:  1.2 | Discrim:   1.0%
+  hybrid       | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:   9.2%
+  comprehensive | Top1:  60.0% | Top3: 100.0% | AvgPos:  1.4 | Discrim:   9.2%
+
+  🏆 Beste methoden voor GroNLP/bert-base-dutch-cased:
+    1. cosine (Top1: 80.0%, Top3: 100.0%, Discrim: 1.5%)
+    2. angular (Top1: 80.0%, Top3: 100.0%, Discrim: 1.0%)
+    3. diem (Top1: 80.0%, Top3: 100.0%, Discrim: 0.1%)
+
+📊 Model: pdelobelle/robbert-v2-dutch-base (huggingface)
+  cosine       | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim:   0.5%
+  diem         | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim:   0.1%
+  qb_cosine    | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim: 615.0%
+  angular      | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim:   0.7%
+  hybrid       | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim:  10.7%
+  comprehensive | Top1:  40.0% | Top3: 100.0% | AvgPos:  1.8 | Discrim:  10.7%
+
+  🏆 Beste methoden voor pdelobelle/robbert-v2-dutch-base:
+    1. qb_cosine (Top1: 40.0%, Top3: 100.0%, Discrim: 615.0%)
+    2. hybrid (Top1: 40.0%, Top3: 100.0%, Discrim: 10.7%)
+    3. comprehensive (Top1: 40.0%, Top3: 100.0%, Discrim: 10.7%)
+
+====================================================================================================
+MIXED MODEL COMPARISON REPORT (Ollama + HuggingFace)
+====================================================================================================
+Evaluatie Methode: Intra-model ranking-based vergelijking
+Model types: {'nomic-embed-text': 'ollama', 'mxbai-embed-large': 'ollama', 'all-minilm': 'ollama', 'bge-large': 'ollama', 'bge-m3': 'ollama', 'jegormeister/bert-base-dutch-cased-snli': 'huggingface', 'GroNLP/bert-base-dutch-cased': 'huggingface', 'pdelobelle/robbert-v2-dutch-base': 'huggingface'}
+Verwachte matches: 5 gedefinieerd
+
+============================================================
+TOP MODEL + METHOD COMBINATIES (Mixed)
+============================================================
+
+Ranking op composite accuracy score:
+   1. 🤗 pdelobelle/robbert-v2-dutch-base + qb_cosine    | Top1:  40.0% | Top3: 100.0% | Discrim: 615.0% | Score: 173.0
+   2. 🤗 GroNLP/bert-base-dutch-cased + qb_cosine    | Top1:  60.0% | Top3: 100.0% | Discrim: 560.9% | Score: 172.2
+   3. 🦙 nomic-embed-text          + qb_cosine    | Top1:  60.0% | Top3: 100.0% | Discrim: 348.8% | Score: 129.8
+   4. 🤗 jegormeister/bert-base-dutch-cased-snli + qb_cosine    | Top1:  80.0% | Top3: 100.0% | Discrim: 103.8% | Score:  90.8
+   5. 🦙 bge-m3                    + qb_cosine    | Top1:  80.0% | Top3: 100.0% | Discrim:  96.6% | Score:  89.3
+   6. 🦙 mxbai-embed-large         + qb_cosine    | Top1:  80.0% | Top3: 100.0% | Discrim:  70.2% | Score:  84.0
+   7. 🦙 all-minilm                + qb_cosine    | Top1:  60.0% | Top3: 100.0% | Discrim:  94.9% | Score:  79.0
+   8. 🦙 bge-large                 + qb_cosine    | Top1:  60.0% | Top3: 100.0% | Discrim:  78.6% | Score:  75.7
+   9. 🤗 jegormeister/bert-base-dutch-cased-snli + hybrid       | Top1:  80.0% | Top3: 100.0% | Discrim:  17.7% | Score:  73.5
+  10. 🤗 jegormeister/bert-base-dutch-cased-snli + comprehensive | Top1:  80.0% | Top3: 100.0% | Discrim:  17.7% | Score:  73.5
+  11. 🦙 bge-m3                    + hybrid       | Top1:  80.0% | Top3: 100.0% | Discrim:  16.6% | Score:  73.3
+  12. 🦙 bge-m3                    + comprehensive | Top1:  80.0% | Top3: 100.0% | Discrim:  16.6% | Score:  73.3
+  13. 🦙 bge-m3                    + cosine       | Top1:  80.0% | Top3: 100.0% | Discrim:   9.0% | Score:  71.8
+  14. 🤗 jegormeister/bert-base-dutch-cased-snli + cosine       | Top1:  80.0% | Top3: 100.0% | Discrim:   8.7% | Score:  71.7
+  15. 🤗 jegormeister/bert-base-dutch-cased-snli + angular      | Top1:  80.0% | Top3: 100.0% | Discrim:   3.6% | Score:  70.7
+
+============================================================
+OLLAMA vs HUGGINGFACE VERGELIJKING
+============================================================
+
+🦙 Beste Ollama combinatie:
+   nomic-embed-text + qb_cosine
+   Top1: 60.0% | Top3: 100.0% | Score: 129.8
+
+🤗 Beste HuggingFace combinatie:
+   pdelobelle/robbert-v2-dutch-base + qb_cosine
+   Top1: 40.0% | Top3: 100.0% | Score: 173.0
+
+📊 Gemiddelde prestatie:
+   🦙 Ollama modellen: 64.4
+   🤗 HuggingFace modellen: 76.9
+   → HuggingFace presteert 12.5 punten beter
+
+============================================================
+AANBEVELINGEN (Mixed Model Evaluatie)
+============================================================
+
+🏆 Beste combinatie overall voor Nederlandse semantische matching:
+   🤗 Model: pdelobelle/robbert-v2-dutch-base
+   🔧 Methode: qb_cosine
+   📊 Top1 Accuracy: 40.0%
+   📊 Top3 Accuracy: 100.0%
+   📊 Discrimination Quality: 615.0%
+
+💡 Deze combinatie:
+   ⚠️  Matig - meer tuning nodig voor betere accuracy
+   ✅ Hoge discrimination - duidelijk onderscheid tussen matches
+   🎯 HuggingFace model - lokaal draaiend, geen server vereist
+
+💾 Mixed model resultaten opgeslagen:
+   - Hoofdresultaten: comparison_results/mixed_model_comparison_20250901_152832.json
+   - Performance analyse: comparison_results/mixed_performance_analysis_20250901_152832.json
+
