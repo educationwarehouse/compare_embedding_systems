@@ -1,0 +1,11 @@
+NAME                                                          ID              SIZE      MODIFIED    
+jobautomation/OpenEuroLLM-Dutch:latest                        32f328c86c05    8.1 GB    2 hours ago    
+V4lentin1879/jina-bert-code-f16:latest                        3cfb06996c08    322 MB    3 hours ago    
+bge-m3:latest                                                 790764642607    1.2 GB    3 hours ago    
+snowflake-arctic-embed2:latest                                5de93a84837d    1.2 GB    3 hours ago    
+bge-large:latest                                              b3d71c928059    670 MB    3 hours ago    
+all-minilm:latest                                             1b226e2802db    45 MB     3 hours ago    
+mxbai-embed-large:latest                                      468836162de7    669 MB    3 hours ago    
+nomic-embed-text:latest                                       0a109f422b47    274 MB    3 hours ago    
+olfh/teuken-7b-instruct-commercial-v0.4:7b-instruct-q4_K_M    17c79ef84136    5.0 GB    3 hours ago    
+olfh/teuken-7b-instruct-commercial-v0.4:7b-instruct-q8_0      5407f5d58d3a    7.9 GB    3 hours ago    

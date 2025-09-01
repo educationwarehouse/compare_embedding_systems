@@ -1,15 +1,23 @@
 # Hardcoded lijst van modellen om te testen
 MODELS_TO_TEST = [
+    # Ollama modellen
     "nomic-embed-text",
     "mxbai-embed-large",
     "all-minilm",
     "bge-large",
-    'bge-m3',
-    'V4lentin1879/jina-bert-code-f16',
-    'olfh/teuken-7b-instruct-commercial-v0.4:7b-instruct-q4_K_M',
-    'olfh/teuken-7b-instruct-commercial-v0.4:7b-instruct-q8_0',
-    'snowflake-arctic-embed2',
-    'jobautomation/OpenEuroLLM-Dutch',
+    "bge-m3",
+    
+    # HuggingFace modellen (worden automatisch gedetecteerd)
+    "jegormeister/bert-base-dutch-cased-snli",
+    
+    "GroNLP/bert-base-dutch-cased",
+    "pdelobelle/robbert-v2-dutch-base",
 ]
 
-
+# Model type mapping (optioneel, voor expliciete controle)
+MODEL_TYPES = {
+    "jegormeister/bert-base-dutch-cased-snli": "huggingface",
+    "GroNLP/bert-base-dutch-cased": "huggingface",
+    "pdelobelle/robbert-v2-dutch-base": "huggingface",
+    # Ollama modellen worden auto-gedetecteerd
+}
