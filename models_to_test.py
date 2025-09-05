@@ -6,6 +6,7 @@ MODELS_TO_TEST = [
     "all-minilm",
     "bge-large",
     "bge-m3",
+    "embeddinggemma",
     
     # HuggingFace modellen (worden automatisch gedetecteerd)
     "jegormeister/bert-base-dutch-cased-snli",

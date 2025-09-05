@@ -3,3 +3,4 @@
 # Embedding storage files
 /embeddings_storage/*
 !/embeddings_storage/keep
+comparison_results
