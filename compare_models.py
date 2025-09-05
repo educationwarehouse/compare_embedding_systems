@@ -38,11 +38,11 @@ COMPARISON_METHODS_TO_TEST = [
 
 # Verwachte matches per query (voor evaluatie)
 EXPECTED_MATCHES = {
-    "Hoe kunnen we klimaatverandering tegengaan?": "Duurzaamheid en Milieu",
-    "Wat is de rol van kunstmatige intelligentie in de toekomst?": "Innovatie en Technologie", 
-    "Hoe zorgen we voor meer gelijkheid in de samenleving?": "Sociale Rechtvaardigheid",
-    "Welke vaardigheden hebben mensen nodig voor de arbeidsmarkt van morgen?": "Onderwijs en Ontwikkeling",
-    "Hoe kunnen technologie en gemeenschappen elkaar versterken?": "Innovatie en Technologie"
+    "Hoe kunnen we klimaatverandering tegengaan?": "Klimaat Actie",
+    "Wat is de rol van kunstmatige intelligentie in de toekomst?": "Technologie en Ethiek", 
+    "Hoe zorgen we voor meer gelijkheid in de samenleving?": "Gelijkheid en Inclusie",
+    "Welke vaardigheden hebben mensen nodig voor de arbeidsmarkt van morgen?": "Toekomstige Vaardigheden",
+    "Hoe kunnen technologie en gemeenschappen elkaar versterken?": "Digitale Gemeenschappen"
 }
 
 class CompleteModelMethodComparison:
