@@ -53,6 +53,40 @@ class CompleteModelMethodComparison:
         self.results_dir.mkdir(exist_ok=True)
         self.model_comparators = {}  # Per-model comparators voor QB-normalization
     
+    def load_existing_embeddings(self, visies: List[Dict[str, str]]) -> Dict[str, List[EmbeddingRecord]]:
+        """Laad bestaande embeddings voor alle modellen en visies"""
+        model_embeddings = {}
+        
+        print("🔍 Controleren op bestaande embeddings...")
+        
+        for model in MODELS_TO_TEST:
+            model_embeddings[model] = []
+            existing_count = 0
+            
+            for visie in visies:
+                # Combineer titel en content voor embedding (zelfde als bij genereren)
+                full_text = f"{visie['title']}: {visie['content']}"
+                
+                # Genereer embedding ID zoals de UnifiedEmbeddingTokenizer dat doet
+                embedding_id = self.unified_tokenizer.generate_embedding_id(full_text, model)
+                
+                # Probeer bestaande embedding te laden
+                existing_record = self.unified_tokenizer.load_embedding(embedding_id)
+                
+                if existing_record:
+                    # Voeg metadata toe voor makkelijke referentie
+                    existing_record.title = visie['title']
+                    existing_record.section_content = visie['content']
+                    model_embeddings[model].append(existing_record)
+                    existing_count += 1
+            
+            if existing_count > 0:
+                print(f"  ✅ {model}: {existing_count}/{len(visies)} embeddings gevonden")
+            else:
+                print(f"  ❌ {model}: geen bestaande embeddings")
+        
+        return model_embeddings
+    
     def detect_model_type(self, model: str) -> str:
         """Detecteer automatisch model type"""
         if model in MODEL_TYPES:
@@ -65,22 +99,35 @@ class CompleteModelMethodComparison:
             return "ollama"
     
     def embed_visies(self, visies: List[Dict[str, str]]) -> Dict[str, List[EmbeddingRecord]]:
-        """Embed alle visies met zowel Ollama als HuggingFace modellen"""
-        model_embeddings = {}
+        """Embed alle visies met zowel Ollama als HuggingFace modellen (alleen nieuwe)"""
         
-        print("=== Embedden van Visies (Mixed Ollama + HuggingFace) ===")
+        # Eerst proberen bestaande embeddings te laden
+        model_embeddings = self.load_existing_embeddings(visies)
+        
+        print("\n=== Embedden van Visies (Mixed Ollama + HuggingFace) ===")
         
         for model in MODELS_TO_TEST:
             model_type = self.detect_model_type(model)
-            print(f"\nModel: {model} (type: {model_type})")
-            model_embeddings[model] = []
+            existing_count = len(model_embeddings[model])
+            missing_count = len(visies) - existing_count
             
-            for i, visie in enumerate(visies, 1):
+            print(f"\nModel: {model} (type: {model_type})")
+            print(f"  Bestaand: {existing_count}/{len(visies)}, Te genereren: {missing_count}")
+            
+            if missing_count == 0:
+                print("  ✅ Alle embeddings al beschikbaar, overslaan...")
+                continue
+            
+            # Bepaal welke visies nog embeddings nodig hebben
+            existing_titles = {record.title for record in model_embeddings[model]}
+            missing_visies = [v for v in visies if v['title'] not in existing_titles]
+            
+            for i, visie in enumerate(missing_visies, 1):
                 try:
                     # Combineer titel en content voor embedding
                     full_text = f"{visie['title']}: {visie['content']}"
                     
-                    print(f"  {i}/{len(visies)}: {visie['title'][:50]}...")
+                    print(f"  {i}/{len(missing_visies)}: {visie['title'][:50]}...")
                     
                     record = self.unified_tokenizer.embed_text(
                         full_text, 
