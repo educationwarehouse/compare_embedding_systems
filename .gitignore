@@ -4,3 +4,4 @@
 /embeddings_storage/*
 !/embeddings_storage/keep
 comparison_results
+__pycache__
