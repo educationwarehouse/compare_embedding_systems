@@ -344,6 +344,43 @@ class HuggingFaceLlamaIndexEmbedding:
 
         return record.embedding_id
 
+    def load_embedding(self, embedding_id: str) -> Optional[EmbeddingRecord]:
+        """Laad embedding op basis van ID"""
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cursor = conn.cursor()
+            cursor.execute("""
+                SELECT text, model, timestamp, file_path, embedding_type 
+                FROM embeddings WHERE id = ?
+            """, (embedding_id,))
+
+            result = cursor.fetchone()
+            conn.close()
+
+            if not result:
+                return None
+
+            text, model, timestamp, file_path, embedding_type = result
+            
+            # Check if file exists
+            if not Path(file_path).exists():
+                return None
+                
+            embedding = np.load(file_path)
+
+            return EmbeddingRecord(
+                text=text,
+                embedding=embedding,
+                model=model,
+                timestamp=timestamp,
+                embedding_id=embedding_id,
+                embedding_type=embedding_type or "huggingface"
+            )
+
+        except Exception as e:
+            print(f"Fout bij laden embedding {embedding_id}: {e}")
+            return None
+
 class UnifiedEmbeddingTokenizer:
     """Unifeert Ollama en HuggingFace embeddings via LlamaIndex"""
     
@@ -392,6 +429,38 @@ class UnifiedEmbeddingTokenizer:
             return self.get_hf_tokenizer(record.model).save_embedding(record)
         else:
             return self.get_ollama_tokenizer().save_embedding(record)
+    
+    def load_embedding(self, embedding_id: str) -> Optional[EmbeddingRecord]:
+        """Laad een bestaande embedding op basis van ID"""
+        # Probeer eerst Ollama tokenizer
+        if self.ollama_tokenizer:
+            record = self.ollama_tokenizer.load_embedding(embedding_id)
+            if record:
+                return record
+        
+        # Probeer dan HuggingFace tokenizers
+        for hf_tokenizer in self.hf_tokenizers.values():
+            record = hf_tokenizer.load_embedding(embedding_id)
+            if record:
+                return record
+        
+        return None
+
+    def generate_embedding_id(self, text: str, model: str) -> str:
+        """Genereer embedding ID voor gegeven tekst en model"""
+        model_type = self.detect_model_type(model)
+        
+        if model_type == "huggingface":
+            hf_tokenizer = self.get_hf_tokenizer(model)
+            return hf_tokenizer.generate_embedding_id(text)
+        else:
+            ollama_tokenizer = self.get_ollama_tokenizer()
+            # We need to temporarily set the model for ID generation
+            original_model = ollama_tokenizer.model
+            ollama_tokenizer.model = model
+            embedding_id = ollama_tokenizer.generate_embedding_id(text)
+            ollama_tokenizer.model = original_model
+            return embedding_id
 
 # De rest van de AdvancedEmbeddingComparator klasse blijft hetzelfde...
 class AdvancedEmbeddingComparator:
